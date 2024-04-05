@@ -52,7 +52,7 @@ def encrypt(encryption):
         else:
             encrypted += char
 
-    return encrypted
+    print(encrypted)
 
 #sequence: 2
 #version: 1
@@ -107,28 +107,31 @@ def decrypt(decryption):
         else:
             decrypted += char
     
-    return decrypted
+    print(decrypted)
 
 #sequence: 1
 #version: 4
 #creator: Rylie Garner
 #date: 4/04/2024
 #purpose: to ask the user if they would like to encrypt or decrypt a message then run the defined function based off the users answers
+valid = False
 encrypt_decrypt = input('would you like to encrypt or decrypt a message?')
+
+while valid:
+    encrypt_decrypt = input('please enter encrypt or decrypt')
+    valid = False
+
 encrypt_decrypt = encrypt_decrypt.lower
 
-e_d = ['e', 'd', 'encrypt', 'decrypt']
-while encrypt_decrypt not in e_d:
-    encrypt_decrypt = input('please enter encrypt or decrypt')
-    encrypt_decrypt = encrypt_decrypt.lower
+if encrypt_decrypt == 'e' or 'encrypt':
+    encryption = input('type in the sentence you would like to encrypt:\n')
+    encrypt(encryption)
 
-if encrypt_decrypt in e_d:
-    
-    
-    if encrypt_decrypt == 'e'or 'encrypt':
-        encryption = input('type in the sentence you would like to encrypt:\n')
-        encrypt(encryption)
-    
-    else:
-        decryption = input('type in the sentance you would like to decrypt:\n')
-        decrypt(decryption)
+
+elif encrypt_decrypt == 'd' or 'decrypt':
+    decryption = input('type in the sentance you would like to decrypt:\n')
+    decrypt(decryption)
+
+else:
+    valid = True
+    print()
