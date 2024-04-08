@@ -115,7 +115,7 @@ def decrypt(decryption):
 #date: 4/04/2024
 #purpose: to ask the user if they would like to encrypt or decrypt a message then run the defined function based off the users answers
 valid = False
-encrypt_decrypt = input('would you like to encrypt or decrypt a message?')
+encrypt_decrypt = input('would you like to encrypt or decrypt a message? ')
 
 while valid:
     encrypt_decrypt = input('please enter encrypt or decrypt')
@@ -126,6 +126,9 @@ encrypt_decrypt = encrypt_decrypt.lower
 if encrypt_decrypt == 'e' or 'encrypt':
     encryption = input('type in the sentence you would like to encrypt:\n')
     encrypt(encryption)
+    #testing because im having errors with the encrypt_decrypt variable
+    decryption = input('enter the sentance you would like to decrypt:\n')
+    decrypt(decryption)
 
 
 elif encrypt_decrypt == 'd' or 'decrypt':
