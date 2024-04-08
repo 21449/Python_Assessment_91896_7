@@ -117,24 +117,18 @@ def decrypt(decryption):
 valid = False
 encrypt_decrypt = input('would you like to encrypt or decrypt a message? ')
 
-while valid:
-    encrypt_decrypt = input('please enter encrypt or decrypt')
-    valid = False
+while valid == False:
 
-encrypt_decrypt = encrypt_decrypt.lower
+    if encrypt_decrypt == "d" or encrypt_decrypt == "decrypt":
+        decryption = input('enter the message you would like to decrypt:\n')
+        decrypt(decryption)
+        valid = True
 
-if encrypt_decrypt == 'e' or 'encrypt':
-    encryption = input('type in the sentence you would like to encrypt:\n')
-    encrypt(encryption)
-    #testing because im having errors with the encrypt_decrypt variable
-    decryption = input('enter the sentance you would like to decrypt:\n')
-    decrypt(decryption)
+    elif encrypt_decrypt == "e" or encrypt_decrypt == "encrypt":
+        encryption = input('enter the message you would like to encrypt:\n')
+        encrypt(encryption)
+        valid = True
 
-
-elif encrypt_decrypt == 'd' or 'decrypt':
-    decryption = input('type in the sentance you would like to decrypt:\n')
-    decrypt(decryption)
-
-else:
-    valid = True
-    print()
+    else:
+        encrypt_decrypt = input('please enter encrypt or decrypt\n')
+        valid = False
