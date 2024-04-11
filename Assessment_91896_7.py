@@ -114,21 +114,32 @@ def decrypt(decryption):
 #creator: Rylie Garner
 #date: 4/04/2024
 #purpose: to ask the user if they would like to encrypt or decrypt a message then run the defined function based off the users answers
-valid = False
-encrypt_decrypt = input('would you like to encrypt or decrypt a message? ')
+def e_d():
 
-while valid == False:
+    valid = False
+    error = "please enter encrypt, decrypt or exit"
+    encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
 
-    if encrypt_decrypt == "d" or encrypt_decrypt == "decrypt":
-        decryption = input('enter the message you would like to decrypt:\n')
-        decrypt(decryption)
-        valid = True
+    while valid == False:
 
-    elif encrypt_decrypt == "e" or encrypt_decrypt == "encrypt":
-        encryption = input('enter the message you would like to encrypt:\n')
-        encrypt(encryption)
-        valid = True
+        if encrypt_decrypt == "d" or encrypt_decrypt == "decrypt":
+            decryption = input('enter the message you would like to decrypt:\n')
+            decrypt(decryption)
+            valid = True
 
-    else:
-        encrypt_decrypt = input('please enter encrypt or decrypt\n')
-        valid = False
+        elif encrypt_decrypt == "e" or encrypt_decrypt == "encrypt":
+            encryption = input('enter the message you would like to encrypt:\n')
+            encrypt(encryption)
+            valid = True
+        
+        else:
+            encrypt_decrypt = input(f'{error}\n')
+            valid = False
+
+continue_ = input('would you like to use the cipher? ')
+
+if continue_ == 'yes'or continue_ == 'y':
+    e_d()
+
+else:
+    exit
