@@ -82,7 +82,7 @@ def decrypt(decryption):
     'v': 's',
     'w': 't',
     'x': 'u',
-    'w': 'v',
+    'y': 'v',
     'z': 'w',
     'a': 'x',
     'b': 'y',
