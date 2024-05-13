@@ -30,14 +30,29 @@ def encrypt(encryption):
     'w': 'z',
     'x': 'a',
     'y': 'b',
-    'z': 'c'
+    'z': 'c',
+    '1': '4',
+    '2': '5',
+    '3': '6',
+    '4': '7',
+    '5': '8',
+    '6': '9',
+    '7': '0',
+    '8': '1',
+    '9': '2',
+    '0': '3',
+    
 }
 
     encrypted = ""
 
     for char in encryption:
 
-        if char.isalpha():
+        if char.isdigit():
+            encrypted_char = letters.get(char, char)
+            encrypted += encrypted_char
+
+        elif char.isalpha():
             
             upper = char.isupper()
             char = char.lower()
@@ -59,7 +74,7 @@ def encrypt(encryption):
 #creator: Rylie Garner
 #date: 4/04/2024
 #purpose: to swap the letters in the decryption variable to letters which are 3 letters behind in the alphabet and loops as many times as there are letters in the sentance in order to change every letter in the variable
-def decrypt(decryption):
+def decrypt(decryption, repeat):
     letters = {
     'd': 'a',
     'e': 'b',
@@ -87,12 +102,28 @@ def decrypt(decryption):
     'a': 'x',
     'b': 'y',
     'c': 'z',
+    '4': '1',
+    '5': '2',
+    '6': '3',
+    '7': '4',
+    '8': '5',
+    '9': '6',
+    '0': '7',
+    '1': '8',
+    '2': '9',
+    '3': '0',
+    
 }
     decrypted = ""
     
     for char in decryption:
+
+        if char.isdigit():
+            decrypted_char = letters.get(char, char)
+            decrypted += decrypted_char
+
     
-        if char.isalpha():
+        elif char.isalpha():
 
             upper = char.isupper()
             char = char.lower()
@@ -123,7 +154,8 @@ def e_d(num,encrypt_decrypt):
 
         if encrypt_decrypt == "d" or encrypt_decrypt == "decrypt":
             decryption = input('enter the message you would like to decrypt:\n')
-            decrypt(decryption)
+            repeat = len(decryption)
+            decrypt(decryption, repeat)
             valid = True
 
         elif encrypt_decrypt == "e" or encrypt_decrypt == "encrypt":
@@ -137,9 +169,11 @@ def e_d(num,encrypt_decrypt):
 
 num = 1
 continue_ = input('would you like to use the cipher? ')
+continue_ = continue_.lower()
 
 if continue_ == 'yes'or continue_ == 'y':
     encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
+    encrypt_decrypt = encrypt_decrypt.lower()
     e_d(num,encrypt_decrypt)
     c = True
 else:
@@ -147,9 +181,11 @@ else:
 
 while c == True:
     continue_ = input('\nwould you like to continue using the cipher? ')
+    continue_ = continue_.lower()
 
     if continue_ == 'yes'or continue_ == 'y':
         encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
+        encrypt_decrypt = encrypt_decrypt.lower()
         e_d(num,encrypt_decrypt)
 
     else:
