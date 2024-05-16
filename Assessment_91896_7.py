@@ -145,9 +145,13 @@ def decrypt(decryption, repeat):
 #creator: Rylie Garner
 #date: 4/04/2024
 #purpose: to ask the user if they would like to encrypt or decrypt a message then run the defined function based off the users answers
-def e_d(num,encrypt_decrypt):
+def e_d():
+    
+    encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
+    encrypt_decrypt = encrypt_decrypt.lower()
+
     valid = False
-    error = "please enter encrypt or decrypt "
+    error = "please enter encrypt or decrypt.\n"
     #encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
 
     while valid == False:
@@ -167,26 +171,41 @@ def e_d(num,encrypt_decrypt):
             encrypt_decrypt = input(f'{error}\n')
             valid = False
 
-num = 1
+e1 = True
 continue_ = input('would you like to use the cipher? ')
 continue_ = continue_.lower()
 
-if continue_ == 'yes'or continue_ == 'y':
-    encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
-    encrypt_decrypt = encrypt_decrypt.lower()
-    e_d(num,encrypt_decrypt)
-    c = True
-else:
-    c = False
+while e1 == True:
 
+    if continue_ == 'yes'or continue_ == 'y':
+        e1 = False
+        e_d()
+        c = True
+
+    elif continue_ == 'n' or continue_ == "no":
+            e1 = False
+            c = False
+
+    else:
+        continue_ = input("please enter yes or no. \n")
+        e1 = True
+        
 while c == True:
     continue_ = input('\nwould you like to continue using the cipher? ')
     continue_ = continue_.lower()
+    e1 = True
 
-    if continue_ == 'yes'or continue_ == 'y':
-        encrypt_decrypt = input('\n\nwould you like to encrypt or decrypt a message? ')
-        encrypt_decrypt = encrypt_decrypt.lower()
-        e_d(num,encrypt_decrypt)
+    while e1 == True:
 
-    else:
-        c = False
+        if continue_ == 'yes'or continue_ == 'y':
+            e1 = False
+            e_d()
+
+        elif continue_ == 'n' or continue_ == "no":
+            e1 = False
+            c = False
+
+        else:
+            continue_ = input("please enter yes or no.\n")
+            e1 = True
+            
